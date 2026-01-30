@@ -55,7 +55,7 @@ function App(): React.JSX.Element {
                 <TiptapEditor onContentChange={(html) => setContent(html)} initialContent={content} />
 
                 <div style={{ marginTop: '20px', textAlign: 'right' }}>
-                    <SaveButton onClick={handleSave}>Zapisz Post</SaveButton>
+                    <SaveButton onClick={handleSave}>Save post</SaveButton>
                 </div>
 
                 <DividerHr />

@@ -12,10 +12,10 @@ export interface DebugPreviewProps {
 export function DebugPreview(props: DebugPreviewProps): React.JSX.Element {
     return (
         <React.Fragment>
-            <h3>Podgląd danych (Debug):</h3>
+            <h3>Preview (Debug):</h3>
             <DebugPreviewContainer>
-                <TitleLabel boldTitle='Tytuł:'>{props.title}</TitleLabel>
-                <TitleLabel boldTitle='Treść (HTML):'></TitleLabel>
+                <TitleLabel boldTitle='Title:'>{props.title}</TitleLabel>
+                <TitleLabel boldTitle='Content (HTML):'></TitleLabel>
                 <PreviewCode>{props.content}</PreviewCode>
             </DebugPreviewContainer>
         </React.Fragment>

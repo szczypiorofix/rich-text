@@ -11,6 +11,7 @@ export const MenuBarContainer = styled.div`
     padding: 10px;
     border-bottom: 1px solid #ccc;
     display: flex;
+    flex-direction: column;
     gap: 5px;
     flex-wrap: wrap;
 `;
