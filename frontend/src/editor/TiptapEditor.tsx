@@ -12,7 +12,7 @@ import TextAlign from '@tiptap/extension-text-align';
 import { TextStyleKit } from '@tiptap/extension-text-style';
 import Underline from '@tiptap/extension-underline';
 import { Dropcursor } from '@tiptap/extensions';
-import { EditorContent, useEditor } from '@tiptap/react';
+import { type AnyExtension, Editor, EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 
 import TextBubbleMenu from './bubblemenu/TextBubbleMenu';
@@ -43,12 +43,12 @@ const TiptapEditor: React.FC<TiptapEditorProps> = ({ onContentChange, initialCon
             Table.configure({
                 resizable: true,
             }),
-            Image.configure({
-                inline: true,
-            }),
-            FileHandler.configure({
+            TableRow,
+            TableHeader,
+            TableCell,
+            (FileHandler as AnyExtension).configure({
                 allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
-                onDrop: (currentEditor, files, pos) => {
+                onDrop: (currentEditor: Editor, files: File[], pos: number) => {
                     files.forEach((file) => {
                         const fileReader = new FileReader();
 
@@ -59,7 +59,7 @@ const TiptapEditor: React.FC<TiptapEditorProps> = ({ onContentChange, initialCon
                                 .insertContentAt(pos, {
                                     type: 'image',
                                     attrs: {
-                                        src: fileReader.result,
+                                        src: fileReader.result as string,
                                     },
                                 })
                                 .focus()
@@ -67,7 +67,9 @@ const TiptapEditor: React.FC<TiptapEditorProps> = ({ onContentChange, initialCon
                         };
                     });
                 },
-                onPaste: (currentEditor, files, htmlContent) => {
+
+                // 4. Dodajemy typy argumentów: Editor, File[], string | undefined
+                onPaste: (currentEditor: Editor, files: File[], htmlContent: string | undefined) => {
                     files.forEach((file) => {
                         if (htmlContent) {
                             console.log(htmlContent);
@@ -78,23 +80,22 @@ const TiptapEditor: React.FC<TiptapEditorProps> = ({ onContentChange, initialCon
 
                         fileReader.readAsDataURL(file);
                         fileReader.onload = () => {
-                            currentEditor
-                                .chain()
-                                .insertContentAt(currentEditor.state.selection.anchor, {
-                                    type: 'image',
-                                    attrs: {
-                                        src: fileReader.result,
-                                    },
-                                })
-                                .focus()
-                                .run();
+                            if (fileReader.result) {
+                                currentEditor
+                                    .chain()
+                                    .insertContentAt(currentEditor.state.selection.anchor, {
+                                        type: 'image',
+                                        attrs: {
+                                            src: fileReader.result as string,
+                                        },
+                                    })
+                                    .focus()
+                                    .run();
+                            }
                         };
                     });
                 },
             }),
-            TableRow,
-            TableHeader,
-            TableCell,
         ],
         content: initialContent,
         onUpdate: ({ editor }) => {
