@@ -68,7 +68,6 @@ const TiptapEditor: React.FC<TiptapEditorProps> = ({ onContentChange, initialCon
                     });
                 },
 
-                // 4. Dodajemy typy argumentów: Editor, File[], string | undefined
                 onPaste: (currentEditor: Editor, files: File[], htmlContent: string | undefined) => {
                     files.forEach((file) => {
                         if (htmlContent) {
