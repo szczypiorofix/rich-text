@@ -3,8 +3,8 @@ import type { Level } from '@tiptap/extension-heading';
 import type { Editor } from '@tiptap/react';
 
 import { ElementGroupHorizontal } from '../../components/ElementsGroup.styled';
+import type { BasicEditorProps } from '../types';
 
-import type { MenuBarProps } from './MenuBar';
 import { MenuBarButton } from './MenuBar.styled';
 
 interface MenuHeadingButtonProps {
@@ -28,7 +28,7 @@ const MenuHeadingButton: React.FC<MenuHeadingButtonProps> = ({ editor, text, lev
     );
 };
 
-export const MenuBarHeadings: React.FC<MenuBarProps> = ({ editor }) => {
+export const MenuBarHeadings: React.FC<BasicEditorProps> = ({ editor }) => {
     if (!editor) {
         return null;
     }

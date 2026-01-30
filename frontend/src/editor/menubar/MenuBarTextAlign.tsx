@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { ElementGroupHorizontal } from '../../components/ElementsGroup.styled';
+import type { BasicEditorProps } from '../types';
 
-import type { MenuBarProps } from './MenuBar';
 import { MenuBarButton } from './MenuBar.styled';
 
-export const MenuBarTextAlign: React.FC<MenuBarProps> = ({ editor }) => {
+export const MenuBarTextAlign: React.FC<BasicEditorProps> = ({ editor }) => {
     if (!editor) {
         return null;
     }

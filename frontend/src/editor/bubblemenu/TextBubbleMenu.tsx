@@ -1,14 +1,10 @@
 import React from 'react';
-import { Editor } from '@tiptap/react';
 import { BubbleMenu } from '@tiptap/react/menus';
 
 import { MenuBarButton, MenuBarContainer } from '../menubar/MenuBar.styled';
+import type { BasicEditorProps } from '../types';
 
-interface BubbleMenuProps {
-    editor: Editor | null;
-}
-
-const TextBubbleMenu: React.FC<BubbleMenuProps> = ({ editor }) => {
+const TextBubbleMenu: React.FC<BasicEditorProps> = ({ editor }) => {
     if (!editor) {
         return null;
     }

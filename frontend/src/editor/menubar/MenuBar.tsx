@@ -1,7 +1,7 @@
 import React from 'react';
-import { Editor } from '@tiptap/react';
 
 import { ElementGroupHorizontal, ElementGroupVertical } from '../../components/ElementsGroup.styled';
+import type { BasicEditorProps } from '../types';
 
 import { MenuBarContainer, MenuBarDivider } from './MenuBar.styled';
 import { MenuBarBasicFormat } from './MenuBarBasicFormat';
@@ -9,11 +9,7 @@ import { MenuBarHeadings } from './MenuBarHeadings';
 import { MenuBarLists } from './MenuBarLists';
 import { MenuBarTextAlign } from './MenuBarTextAlign';
 
-export interface MenuBarProps {
-    editor: Editor | null;
-}
-
-const MenuBar: React.FC<MenuBarProps> = ({ editor }) => {
+const MenuBar: React.FC<BasicEditorProps> = ({ editor }) => {
     if (!editor) {
         return null;
     }
