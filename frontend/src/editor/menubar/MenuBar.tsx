@@ -1,8 +1,7 @@
 import React from 'react';
+import { Editor } from '@tiptap/react';
 
 import { MenuBarButton, MenuBarContainer, MenuBarDivider } from './MenuBar.styled';
-
-import { Editor } from '@tiptap/react';
 
 interface MenuBarProps {
     editor: Editor | null;

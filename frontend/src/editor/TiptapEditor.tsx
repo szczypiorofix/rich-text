@@ -1,9 +1,4 @@
 import React from 'react';
-
-import TextBubbleMenu from './bubblemenu/TextBubbleMenu';
-import MenuBar from './menubar/MenuBar';
-import { EditorContainer } from './TipTapEditor.styled';
-
 import { Table } from '@tiptap/extension-table';
 import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
@@ -13,6 +8,10 @@ import { TextStyleKit } from '@tiptap/extension-text-style';
 import Underline from '@tiptap/extension-underline';
 import { EditorContent, Tiptap, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
+
+import TextBubbleMenu from './bubblemenu/TextBubbleMenu';
+import MenuBar from './menubar/MenuBar';
+import { EditorContainer } from './TipTapEditor.styled';
 
 interface TiptapEditorProps {
     onContentChange: (content: string) => void;

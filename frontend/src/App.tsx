@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import TitleLabel from './components/TitleLabel';
+import TitleLabel from './components/tilelabel/TitleLabel';
 import TiptapEditor from './editor/TiptapEditor';
 import { DebugPreview } from './preview/DebugPreview';
 import { DividerHr, SaveButton } from './App.styled';

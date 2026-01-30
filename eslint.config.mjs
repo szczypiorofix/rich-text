@@ -60,7 +60,7 @@ export default tseslint.config(
                 {
                     groups: [
                         ['^@nestjs', '^\\w', 'fs', 'path'],
-                        ['^react(/.*|$)', '^@mui'],
+                        ['^react(/.*|$)', '^@mui', '@tiptap(/.*|$)'],
                         ['^@lib(/.*|$)'],
                         ['^@utils(/.*|$)'],
                         ['^@services(/.*|$)'],
