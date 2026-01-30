@@ -10,7 +10,7 @@ interface PostData {
     content: string;
 }
 
-const defaultContent = '<p>Zacznij pisać swój post...</p>';
+const defaultContent = '<p>Start writing your post here ...</p>';
 
 function App(): React.JSX.Element {
     const [title, setTitle] = useState<string>('');
@@ -18,7 +18,7 @@ function App(): React.JSX.Element {
 
     const handleSave = () => {
         if (!title || !content) {
-            alert('Wypełnij tytuł i treść!');
+            alert('Fill post title and content!');
             return;
         }
 
@@ -27,8 +27,8 @@ function App(): React.JSX.Element {
             content,
         };
 
-        console.log('Payload do NestJS:', payload);
-        alert('Dane gotowe (szczegóły w konsoli)');
+        console.log('Payload for NestJS:', payload);
+        alert('Data ready (see console for details)');
     };
 
     return (
@@ -36,7 +36,7 @@ function App(): React.JSX.Element {
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <h1>PoC CMS</h1>
                 <div style={{ marginBottom: '15px' }}>
-                    <TitleLabel boldTitle='Tytuł posta'></TitleLabel>
+                    <TitleLabel boldTitle='Post title'></TitleLabel>
                     <input
                         type='text'
                         value={title}
@@ -46,11 +46,11 @@ function App(): React.JSX.Element {
                             padding: '8px',
                             fontSize: '16px',
                         }}
-                        placeholder='Wpisz tytuł...'
+                        placeholder='Enter title...'
                     />
                 </div>
 
-                <TitleLabel boldTitle='Treść:'></TitleLabel>
+                <TitleLabel boldTitle='Content:'></TitleLabel>
 
                 <TiptapEditor onContentChange={(html) => setContent(html)} initialContent={content} />
 

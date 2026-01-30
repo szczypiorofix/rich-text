@@ -25,10 +25,10 @@ const TiptapEditor: React.FC<TiptapEditorProps> = ({ onContentChange, initialCon
             Underline,
             TextStyleKit,
             TextAlign.configure({
-                types: ['heading', 'paragraph'], // Określ, co można wyrównywać
+                types: ['heading', 'paragraph'],
             }),
             Table.configure({
-                resizable: true, // Pozwala zmieniać rozmiar kolumn
+                resizable: true,
             }),
             TableRow,
             TableHeader,
