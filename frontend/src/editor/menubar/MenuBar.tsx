@@ -9,6 +9,7 @@ import { MenuBarHeadings } from './MenuBarHeadings';
 import { MenuBarImage } from './MenuBarImage';
 import { MenuBarLists } from './MenuBarLists';
 import { MenuBarTextAlign } from './MenuBarTextAlign';
+import { MenuBarTextColor } from './MenuBarTextColor';
 
 const MenuBar: React.FC<BasicEditorProps> = ({ editor }) => {
     if (!editor) {
@@ -36,6 +37,7 @@ const MenuBar: React.FC<BasicEditorProps> = ({ editor }) => {
 
                 <ElementGroupHorizontal>
                     <MenuBarImage editor={editor} />
+                    <MenuBarTextColor editor={editor} />
                 </ElementGroupHorizontal>
             </ElementGroupVertical>
         </MenuBarContainer>
