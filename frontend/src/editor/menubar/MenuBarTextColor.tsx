@@ -14,7 +14,7 @@ export const MenuBarTextColor: React.FC<BasicEditorProps> = ({ editor }) => {
                 return null;
             }
             return {
-                color: ctx.editor.getAttributes('textStyle').color,
+                color: ctx.editor.getAttributes('textStyle').color as string,
                 isPurple: ctx.editor.isActive('textStyle', { color: '#958DF1' }),
                 isRed: ctx.editor.isActive('textStyle', { color: '#F98181' }),
                 isOrange: ctx.editor.isActive('textStyle', { color: '#FBBC88' }),
@@ -32,12 +32,14 @@ export const MenuBarTextColor: React.FC<BasicEditorProps> = ({ editor }) => {
 
     return (
         <ElementGroupHorizontal>
-            <input
-                type='color'
-                onInput={(event) => editor.chain().focus().setColor(event.currentTarget.value).run()}
-                value={editorState.color}
-                data-testid='setColor'
-            />
+            {editorState.color && (
+                <input
+                    type='color'
+                    onInput={(event) => editor.chain().focus().setColor(event.currentTarget.value).run()}
+                    value={editorState.color}
+                    data-testid='setColor'
+                />
+            )}
             <MenuBarButton
                 onClick={() => editor.chain().focus().setColor('#958DF1').run()}
                 className={editorState.isPurple ? 'is-active' : ''}
