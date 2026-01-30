@@ -6,6 +6,7 @@ import type { BasicEditorProps } from '../types';
 import { MenuBarContainer, MenuBarDivider } from './MenuBar.styled';
 import { MenuBarBasicFormat } from './MenuBarBasicFormat';
 import { MenuBarHeadings } from './MenuBarHeadings';
+import { MenuBarImage } from './MenuBarImage';
 import { MenuBarLists } from './MenuBarLists';
 import { MenuBarTextAlign } from './MenuBarTextAlign';
 
@@ -21,13 +22,21 @@ const MenuBar: React.FC<BasicEditorProps> = ({ editor }) => {
                     <MenuBarBasicFormat editor={editor} />
                     <MenuBarDivider />
                     <MenuBarHeadings editor={editor} />
+                    <MenuBarDivider />
+                    <MenuBarTextAlign editor={editor} />
                 </ElementGroupHorizontal>
 
                 <MenuBarDivider />
 
-                <MenuBarLists editor={editor} />
+                <ElementGroupHorizontal>
+                    <MenuBarLists editor={editor} />{' '}
+                </ElementGroupHorizontal>
 
-                <MenuBarTextAlign editor={editor} />
+                <MenuBarDivider />
+
+                <ElementGroupHorizontal>
+                    <MenuBarImage editor={editor} />
+                </ElementGroupHorizontal>
             </ElementGroupVertical>
         </MenuBarContainer>
     );

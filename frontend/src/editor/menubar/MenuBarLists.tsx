@@ -1,3 +1,5 @@
+import { RiListOrdered, RiListUnordered } from 'react-icons/ri';
+
 import React from 'react';
 
 import { ElementGroupHorizontal } from '../../components/ElementsGroup.styled';
@@ -16,13 +18,13 @@ export const MenuBarLists: React.FC<BasicEditorProps> = ({ editor }) => {
                 onClick={() => editor.chain().focus().toggleBulletList().run()}
                 className={editor.isActive('bulletList') ? 'is-active' : ''}
             >
-                Bullet List
+                <RiListUnordered />
             </MenuBarButton>
             <MenuBarButton
                 onClick={() => editor.chain().focus().toggleOrderedList().run()}
                 className={editor.isActive('orderedList') ? 'is-active' : ''}
             >
-                Ordered List
+                <RiListOrdered />
             </MenuBarButton>
         </ElementGroupHorizontal>
     );

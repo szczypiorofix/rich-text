@@ -1,3 +1,6 @@
+import type { IconType } from 'react-icons/lib';
+import { RiH1, RiH2, RiH3, RiH4, RiH5, RiH6 } from 'react-icons/ri';
+
 import React from 'react';
 import type { Level } from '@tiptap/extension-heading';
 import type { Editor } from '@tiptap/react';
@@ -9,11 +12,11 @@ import { MenuBarButton } from './MenuBar.styled';
 
 interface MenuHeadingButtonProps {
     editor: Editor;
-    text: string;
+    icon: IconType;
     level: Level;
 }
 
-const MenuHeadingButton: React.FC<MenuHeadingButtonProps> = ({ editor, text, level }) => {
+const MenuHeadingButton: React.FC<MenuHeadingButtonProps> = ({ editor, icon: Icon, level }) => {
     if (level > 6 || level < 1) {
         return null;
     }
@@ -23,7 +26,7 @@ const MenuHeadingButton: React.FC<MenuHeadingButtonProps> = ({ editor, text, lev
             onClick={() => editor.chain().focus().toggleHeading({ level }).run()}
             className={editor.isActive('heading', { level }) ? 'is-active' : ''}
         >
-            {text}
+            <Icon />
         </MenuBarButton>
     );
 };
@@ -33,14 +36,20 @@ export const MenuBarHeadings: React.FC<BasicEditorProps> = ({ editor }) => {
         return null;
     }
 
+    const headingsConfig: Array<{ level: Level; icon: IconType }> = [
+        { level: 1, icon: RiH1 },
+        { level: 2, icon: RiH2 },
+        { level: 3, icon: RiH3 },
+        { level: 4, icon: RiH4 },
+        { level: 5, icon: RiH5 },
+        { level: 6, icon: RiH6 },
+    ];
+
     return (
         <ElementGroupHorizontal>
-            <MenuHeadingButton editor={editor} text='H1' level={1} />
-            <MenuHeadingButton editor={editor} text='H2' level={2} />
-            <MenuHeadingButton editor={editor} text='H3' level={3} />
-            <MenuHeadingButton editor={editor} text='H4' level={4} />
-            <MenuHeadingButton editor={editor} text='H5' level={5} />
-            <MenuHeadingButton editor={editor} text='H6' level={6} />
+            {headingsConfig.map((heading) => (
+                <MenuHeadingButton key={heading.level} editor={editor} level={heading.level} icon={heading.icon} />
+            ))}
         </ElementGroupHorizontal>
     );
 };
