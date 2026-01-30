@@ -4,8 +4,12 @@ body {
     padding: 0;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .ProseMirror {
     padding: 20px;
-    min-height: 200px;
+    min-height: 360px;
     outline: none;
 }
