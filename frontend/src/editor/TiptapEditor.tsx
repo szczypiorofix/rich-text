@@ -6,7 +6,7 @@ import TableRow from '@tiptap/extension-table-row';
 import TextAlign from '@tiptap/extension-text-align';
 import { TextStyleKit } from '@tiptap/extension-text-style';
 import Underline from '@tiptap/extension-underline';
-import { EditorContent, Tiptap, useEditor } from '@tiptap/react';
+import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 
 import TextBubbleMenu from './bubblemenu/TextBubbleMenu';
@@ -48,10 +48,6 @@ const TiptapEditor: React.FC<TiptapEditorProps> = ({ onContentChange, initialCon
             <TextBubbleMenu editor={editor} />
 
             <EditorContent editor={editor} />
-
-            <Tiptap.FloatingMenu>
-                <button>Add heading</button>
-            </Tiptap.FloatingMenu>
         </EditorContainer>
     );
 };
