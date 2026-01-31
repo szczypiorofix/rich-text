@@ -1,9 +1,8 @@
-import { type ReactNode } from 'react';
+import React from 'react';
 
 import { TitleLabelStyled } from './TitleLabel.styled';
 
-interface TitleLabelProps {
-    children?: ReactNode;
+interface TitleLabelProps extends React.PropsWithChildren {
     boldTitle?: string;
 }
 

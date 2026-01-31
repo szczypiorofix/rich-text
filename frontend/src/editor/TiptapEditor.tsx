@@ -24,7 +24,7 @@ interface TiptapEditorProps {
     initialContent?: string;
 }
 
-const TiptapEditor: React.FC<TiptapEditorProps> = ({ onContentChange, initialContent }) => {
+export function TiptapEditor(props: TiptapEditorProps): React.JSX.Element {
     const editor = useEditor({
         extensions: [
             Document,
@@ -96,10 +96,10 @@ const TiptapEditor: React.FC<TiptapEditorProps> = ({ onContentChange, initialCon
                 },
             }),
         ],
-        content: initialContent,
+        content: props.initialContent,
         onUpdate: ({ editor }) => {
             const html = editor.getHTML();
-            onContentChange(html);
+            props.onContentChange(html);
         },
     });
 
@@ -112,6 +112,4 @@ const TiptapEditor: React.FC<TiptapEditorProps> = ({ onContentChange, initialCon
             <EditorContent editor={editor} />
         </EditorContainer>
     );
-};
-
-export default TiptapEditor;
+}

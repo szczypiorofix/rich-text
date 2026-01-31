@@ -6,9 +6,8 @@ import type { Level } from '@tiptap/extension-heading';
 import type { Editor } from '@tiptap/react';
 
 import { ElementGroupHorizontal } from '../../components/ElementsGroup.styled';
+import MenuBarBasicButton from '../components/MenuBarBasicButton.tsx';
 import type { BasicEditorProps } from '../types';
-
-import { MenuBarButton } from './MenuBar.styled';
 
 interface MenuHeadingButtonProps {
     editor: Editor;
@@ -22,12 +21,12 @@ const MenuHeadingButton: React.FC<MenuHeadingButtonProps> = ({ editor, icon: Ico
     }
 
     return (
-        <MenuBarButton
+        <MenuBarBasicButton
             onClick={() => editor.chain().focus().toggleHeading({ level }).run()}
             className={editor.isActive('heading', { level }) ? 'is-active' : ''}
         >
             <Icon />
-        </MenuBarButton>
+        </MenuBarBasicButton>
     );
 };
 

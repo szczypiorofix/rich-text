@@ -1,7 +1,8 @@
 import React from 'react';
 import { BubbleMenu } from '@tiptap/react/menus';
 
-import { MenuBarButton, MenuBarContainer } from '../menubar/MenuBar.styled';
+import MenuBarBasicButton from '../components/MenuBarBasicButton.tsx';
+import { MenuBarContainer } from '../menubar/MenuBar.styled';
 import type { BasicEditorProps } from '../types';
 
 const TextBubbleMenu: React.FC<BasicEditorProps> = ({ editor }) => {
@@ -12,26 +13,26 @@ const TextBubbleMenu: React.FC<BasicEditorProps> = ({ editor }) => {
     return (
         <BubbleMenu editor={editor} options={{ placement: 'bottom', offset: 8, flip: true }}>
             <MenuBarContainer style={{ borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-                <MenuBarButton
+                <MenuBarBasicButton
                     onClick={() => editor.chain().focus().toggleBold().run()}
                     className={editor.isActive('bold') ? 'is-active' : ''}
                 >
                     Bold
-                </MenuBarButton>
+                </MenuBarBasicButton>
 
-                <MenuBarButton
+                <MenuBarBasicButton
                     onClick={() => editor.chain().focus().toggleItalic().run()}
                     className={editor.isActive('italic') ? 'is-active' : ''}
                 >
                     Italic
-                </MenuBarButton>
+                </MenuBarBasicButton>
 
-                <MenuBarButton
+                <MenuBarBasicButton
                     onClick={() => editor.chain().focus().toggleStrike().run()}
                     className={editor.isActive('strike') ? 'is-active' : ''}
                 >
                     Strike
-                </MenuBarButton>
+                </MenuBarBasicButton>
             </MenuBarContainer>
         </BubbleMenu>
     );

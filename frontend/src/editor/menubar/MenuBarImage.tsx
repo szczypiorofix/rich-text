@@ -3,9 +3,8 @@ import { RiImageFill } from 'react-icons/ri';
 import React, { useCallback } from 'react';
 
 import { ElementGroupHorizontal } from '../../components/ElementsGroup.styled';
+import MenuBarBasicButton from '../components/MenuBarBasicButton.tsx';
 import type { BasicEditorProps } from '../types';
-
-import { MenuBarButton } from './MenuBar.styled';
 
 export const MenuBarImage: React.FC<BasicEditorProps> = ({ editor }) => {
     if (!editor) {
@@ -24,9 +23,9 @@ export const MenuBarImage: React.FC<BasicEditorProps> = ({ editor }) => {
         <ElementGroupHorizontal>
             <div className='control-group'>
                 <div className='button-group'>
-                    <MenuBarButton onClick={addImage}>
+                    <MenuBarBasicButton onClick={addImage}>
                         <RiImageFill />
-                    </MenuBarButton>
+                    </MenuBarBasicButton>
                 </div>
             </div>
         </ElementGroupHorizontal>

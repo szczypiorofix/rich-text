@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import TitleLabel from './components/tilelabel/TitleLabel';
-import TiptapEditor from './editor/TiptapEditor';
+import { TiptapEditor } from './editor/TiptapEditor';
 import { DebugPreview } from './preview/DebugPreview';
 import { DividerHr, SaveButton } from './App.styled';
 

@@ -3,9 +3,8 @@ import { RiListOrdered, RiListUnordered } from 'react-icons/ri';
 import React from 'react';
 
 import { ElementGroupHorizontal } from '../../components/ElementsGroup.styled';
+import MenuBarBasicButton from '../components/MenuBarBasicButton.tsx';
 import type { BasicEditorProps } from '../types';
-
-import { MenuBarButton } from './MenuBar.styled';
 
 export const MenuBarLists: React.FC<BasicEditorProps> = ({ editor }) => {
     if (!editor) {
@@ -14,18 +13,18 @@ export const MenuBarLists: React.FC<BasicEditorProps> = ({ editor }) => {
 
     return (
         <ElementGroupHorizontal>
-            <MenuBarButton
+            <MenuBarBasicButton
                 onClick={() => editor.chain().focus().toggleBulletList().run()}
                 className={editor.isActive('bulletList') ? 'is-active' : ''}
             >
                 <RiListUnordered />
-            </MenuBarButton>
-            <MenuBarButton
+            </MenuBarBasicButton>
+            <MenuBarBasicButton
                 onClick={() => editor.chain().focus().toggleOrderedList().run()}
                 className={editor.isActive('orderedList') ? 'is-active' : ''}
             >
                 <RiListOrdered />
-            </MenuBarButton>
+            </MenuBarBasicButton>
         </ElementGroupHorizontal>
     );
 };
