@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
+import { DebugPreview } from './components/preview/DebugPreview';
 import TitleLabel from './components/tilelabel/TitleLabel';
 import { TiptapEditor } from './editor/TiptapEditor';
-import { DebugPreview } from './components/preview/DebugPreview';
 import { DividerHr, SaveButton } from './App.styled';
 import { pb } from './services';
 
