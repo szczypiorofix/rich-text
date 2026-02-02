@@ -4,12 +4,7 @@ import { DebugPreview } from './components/preview/DebugPreview';
 import TitleLabel from './components/tilelabel/TitleLabel';
 import { TiptapEditor } from './editor/TiptapEditor';
 import { DividerHr, SaveButton } from './App.styled';
-import { pb } from './services';
-
-interface PostData {
-    title: string;
-    content: string;
-}
+import { api } from './api/ApiClient';
 
 const defaultContent = '<p>Start writing your post here ...</p>';
 
@@ -28,15 +23,13 @@ function App(): React.JSX.Element {
         setIsSaving(true);
 
         try {
-            const payload: PostData = {
+            const newPost = await api.createPost({
                 title,
                 content,
-            };
+            });
 
-            const record = await pb.collection('Post').create(payload);
-
-            console.log('Saved record:', record);
-            alert(`Post saved successfully! ID: ${record.id}`);
+            console.log('Saved record:', newPost);
+            alert(`Post saved successfully! ID: ${newPost.id}`);
         } catch (error: unknown) {
             console.error('Error saving post:', error);
             if (typeof error == 'string') {
