@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TitleLabel from '../components/tilelabel/TitleLabel';
+import TitleLabel from '../tilelabel/TitleLabel';
 
 import { DebugPreviewContainer, PreviewCode } from './DebugPreview.styled';
 

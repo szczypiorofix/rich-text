@@ -26,6 +26,7 @@
         "@tiptap/extension-underline": "^3.18.0",
         "@tiptap/react": "^3.18.0",
         "@tiptap/starter-kit": "^3.18.0",
+        "pocketbase": "^0.26.8",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
         "react-icons": "^5.5.0",
