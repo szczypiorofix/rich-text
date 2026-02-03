@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
+import { api } from './api/ApiClient';
 import { DebugPreview } from './components/preview/DebugPreview';
 import TitleLabel from './components/tilelabel/TitleLabel';
 import { TiptapEditor } from './editor/TiptapEditor';
 import { DividerHr, SaveButton } from './App.styled';
-import { api } from './api/ApiClient';
 
 const defaultContent = '<p>Start writing your post here ...</p>';
 
@@ -28,8 +28,13 @@ function App(): React.JSX.Element {
                 content,
             });
 
-            console.log('Saved record:', newPost);
-            alert(`Post saved successfully! ID: ${newPost.id}`);
+            if (newPost) {
+                console.log('Saved record:', newPost);
+                alert(`Post saved successfully! ID: ${newPost?.id}`);
+            } else {
+                console.warn('Cannot create new post. New post object', newPost);
+                alert(`Cannot create new post.`);
+            }
         } catch (error: unknown) {
             console.error('Error saving post:', error);
             if (typeof error == 'string') {

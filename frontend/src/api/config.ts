@@ -8,9 +8,8 @@ export type EnvironmentType = (typeof EnvironmentSettings)[keyof typeof Environm
 export class AppConfig {
     private static instance: AppConfig;
 
-    // Odczytujemy zmienne z .env (Vite używa import.meta.env, CRA używa process.env)
     private _env: EnvironmentType = (import.meta.env.VITE_APP_ENV as EnvironmentType) || EnvironmentSettings.LOCAL;
-    private _apiUrl: string = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8090';
+    private _apiUrl: string = (import.meta.env.VITE_API_URL as string | undefined) || 'http://127.0.0.1:8090';
 
     private constructor() {}
 
