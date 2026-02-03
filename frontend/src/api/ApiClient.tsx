@@ -9,10 +9,10 @@ class ApiClient {
 
     constructor() {
         if (config.environment === EnvironmentSettings.LOCAL) {
-            console.log('🔌 Using Local API Provider (PocketBase)');
+            console.log('Using Local API Provider (PocketBase)');
             this.provider = new PocketBaseProvider();
         } else {
-            console.log('🚀 Using Production API Provider');
+            console.log('Using Production API Provider');
             this.provider = new ProductionProvider();
         }
     }
